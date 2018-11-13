@@ -5,7 +5,7 @@ const Species = (props) => {
         <div className="row">
             {props.species.map((specie, index) => {
                 return (
-                    <div key={index} className="card border-secondary mb-3" style={{ maxWidth: 18 + "rem" }}>
+                    <div key={index} className="card border-secondary mb-3 m-2 mx-auto" style={{ maxWidth: 18 + "rem" }}>
                         <div className="card-header">Studio Ghibli</div>
                         <div className="card-body text-secondary">
                             <h5 className="card-title">{specie.name}</h5>
