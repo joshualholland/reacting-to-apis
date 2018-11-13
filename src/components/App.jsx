@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import Card from './Card';
+import Logo from './logo.png';
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            films: []
+            films: [],
+            load: false
         }
     }
 
@@ -17,18 +19,28 @@ class App extends Component {
             })
     }
 
+    handleSubmit() {
+        this.setState({
+            load: true
+        })
+    }
+
     render() {
-        if (this.state.films.length === 0) {
+        if (this.state.load === false) {
             return (
-                <h1>Fetching films...</h1>
+                <>
+                    <img src={Logo} />
+                    <button type="button" class="btn btn-outline-secondary" onClick={(e) => this.handleSubmit(e)}>Load Films</button>
+                </>
             )
         } else {
-            return(
+            return (
                 <div>
                     <Card films={this.state.films} />
                 </div>
             )
         }
+
     }
 }
 
